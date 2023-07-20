@@ -19,6 +19,8 @@ BONUS 2: Permettere di associare più di una Categoria ad ogni prodotto (usare q
  */
 
 
+import javax.swing.*;
+
 public class Product {
 
     // DATA
@@ -41,10 +43,63 @@ public class Product {
 
 
     // GETTERS AND SETTERS
+    public int getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getIva() {
+        return iva;
+    }
+
+    public void setIva(int iva) {
+        this.iva = iva;
+    }
 
 
     // METHODS
+    public double calcPrice(){
+        return price;
+    }
 
+    public double calcPriceIva(){
+        double ivaPrice = price * iva / 100;
+        return price + ivaPrice;
+    }
+
+    public String calcCode(){
+        String codeString = Integer.toString(code);
+        char o = '0';
+        for (int i = 0; i < codeString.length(); i++){
+            while (codeString.length() < 9){
+                codeString = o + codeString;
+                i++;
+            }
+        } return codeString;
+    }
 
     @Override
     public String toString() {
@@ -56,4 +111,5 @@ public class Product {
                 ", iva=" + iva +
                 '}';
     }
+
 }
