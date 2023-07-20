@@ -14,13 +14,46 @@ Gli altri attributi siano accessibili sia in lettura che in scrittura
 Il prodotto esponga sia un metodo per avere il prezzo base che uno per avere il prezzo comprensivo di iva
 Il prodotto esponga un metodo per avere il nome esteso, ottenuto concatenando codice-nome: il codice deve avere un pad left di zeri per arrivare a 8 caratteri (ad esempio codice 91 diventa 00000091, mentre codice 123445567 resta come è)
 Nello stesso package aggiungete una classe Main con metodo main nella quale create uno o più prodotti e testate tutte le funzionalità della classe (cioè tutti i metodi public)
-BONUS 1:  Aggiungere una classe Categoria (con nome e descrizione) e associare ad ogni Prodotto una categoria usando la composizione
+BONUS 1: Aggiungere una classe Categoria (con nome e descrizione) e associare ad ogni Prodotto una categoria usando la composizione
 BONUS 2: Permettere di associare più di una Categoria ad ogni prodotto (usare quindi una ArrayList di categorie come tipo di attributo)
  */
 
 
 public class Product {
 
+    // DATA
+    private int code;
+    private String name;
+    private String description;
+    private double price;
+    private int iva;
 
 
+    // CONSTRUCTORS
+
+    public Product(int code, String name, String description, double price, int iva) {
+        this.code = code;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.iva = iva;
+    }
+
+
+    // GETTERS AND SETTERS
+
+
+    // METHODS
+
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", iva=" + iva +
+                '}';
+    }
 }
